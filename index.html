@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>:leaf: Calculadora de Emissão de CO2</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <h1 class="site-header__title">🌿 Calculadora de Emissão de CO2</h1>
+        <p class="site-header__subtitle">Calcule as emissões de CO2 da sua viagem com base na distância e meio de transporte escolhido.</p>
+      </div>
+    </header>
+
+    <main class="main" id="main-content">
+      <section class="calculator">
+
+        <form id="calculator-form" class="calculator__form" novalidate>
+          <div class="calculator__row calculator__row--inputs">
+            <div class="calculator__field">
+              <label for="origin" class="calculator__label">Origem</label>
+              <input id="origin" name="origin" type="text" list="cities-list" class="calculator__input calculator__input--distance" placeholder="Digite a cidade de origem" autocomplete="off">
+            </div>
+
+            <div class="calculator__field">
+              <label for="destination" class="calculator__label">Destino</label>
+              <input id="destination" name="destination" type="text" list="cities-list" class="calculator__input calculator__input--distance" placeholder="Digite a cidade de destino" autocomplete="off">
+            </div>
+
+            <datalist id="cities-list">
+              <!-- preenchido por JavaScript -->
+            </datalist>
+          </div>
+
+          <div class="calculator__row calculator__row--distance">
+            <div class="calculator__field">
+              <label for="distance" class="calculator__label">Distância (km)</label>
+              <input id="distance" name="distance" type="number" class="calculator__input calculator__input--distance" readonly value="0">
+              <small class="calculator__help">A distância será preenchida automaticamente</small>
+
+              <div class="calculator__manual">
+                <input id="manual-distance" name="manual-distance" type="checkbox" class="calculator__checkbox">
+                <label for="manual-distance" class="calculator__label">Inserir distância manualmente</label>
+              </div>
+            </div>
+          </div>
+
+          <fieldset class="calculator__fieldset" aria-label="Modo de transporte">
+            <legend class="calculator__legend">Modo de transporte</legend>
+
+            <div class="calculator__transport-grid">
+              <label class="calculator__transport-option">
+                <input type="radio" name="transport" value="bicycle" class="calculator__radio">
+                <span class="calculator__transport-icon">🚴</span>
+                <span class="calculator__transport-label">Bicicleta</span>
+              </label>
+
+              <label class="calculator__transport-option">
+                <input type="radio" name="transport" value="car" class="calculator__radio" checked>
+                <span class="calculator__transport-icon">🚗</span>
+                <span class="calculator__transport-label">Carro</span>
+              </label>
+
+              <label class="calculator__transport-option">
+                <input type="radio" name="transport" value="bus" class="calculator__radio">
+                <span class="calculator__transport-icon">🚌</span>
+                <span class="calculator__transport-label">Ônibus</span>
+              </label>
+
+              <label class="calculator__transport-option">
+                <input type="radio" name="transport" value="truck" class="calculator__radio">
+                <span class="calculator__transport-icon">🚚</span>
+                <span class="calculator__transport-label">Caminhão</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="calculator__actions">
+            <button type="submit" class="calculator__button">Calcular Emissão</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="results" class="results hidden" aria-hidden="true" hidden>
+        <h3 class="results__heading">Resultados</h3>
+        <div id="results-content" class="results__content"></div>
+      </section>
+
+      <section id="comparison" class="comparison hidden" aria-hidden="true" hidden>
+        <h3 class="comparison__heading">Comparação</h3>
+        <div id="comparison-content" class="comparison__content"></div>
+      </section>
+
+      <section id="carbon-credits" class="carbon-credits hidden" aria-hidden="true" hidden>
+        <h3 class="carbon-credits__heading">Créditos de Carbono</h3>
+        <div id="carbon-credits-content" class="carbon-credits__content"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__credits">Desenvolvido com ❤️ por Vini Lourenço | Projeto GitHub Copilot</p>
+    </footer>
+
+    <script src="js/routes-data.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
