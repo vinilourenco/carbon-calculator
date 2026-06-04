@@ -361,7 +361,9 @@ textarea:focus {
   box-shadow: var(--shadow-sm);
   margin-bottom: 0.75rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 .results_icon {
   font-size: 2.5rem;
